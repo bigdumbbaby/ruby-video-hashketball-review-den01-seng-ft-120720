@@ -205,3 +205,20 @@ def player_stats(players_name)
   end
   stats
 end
+
+def big_shoe_rebounds
+  rebounds = 0 
+  largest_shoe_size = 0
+  game_hash.each do |key, value|
+    value[:players].each do |inner_key| 
+      #binding.pry
+      if inner_key[:shoe] > largest_shoe_size
+        largest_shoe_size = inner_key[:shoe]
+        rebounds = inner_key[:rebounds]
+        #binding.pry
+      end
+    end 
+    #binding.pry
+  end
+  rebounds
+end
