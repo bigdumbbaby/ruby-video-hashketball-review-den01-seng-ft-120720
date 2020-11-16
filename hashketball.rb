@@ -175,3 +175,17 @@ def team_names
   names[1] = game_hash[:away][:team_name]
   names
 end
+
+def player_numbers(team_name)
+  numbers = []
+  index = 0
+  game_hash.each do |key, value|
+    value[:players].each do |inner_key|
+      if value[:team_name] == team_name
+        numbers[index] = inner_key[:number]
+        index += 1 
+      end
+    end
+  end
+  numbers
+end
