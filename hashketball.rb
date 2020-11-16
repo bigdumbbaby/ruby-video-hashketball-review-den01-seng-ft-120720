@@ -189,3 +189,19 @@ def player_numbers(team_name)
   end
   numbers
 end
+
+
+def player_stats(players_name)
+  stats = {}
+  game_hash.each do |key, value|
+    value[:players].each do |inner_key| 
+      #binding.pry
+      if inner_key[:player_name] == players_name
+        stats = inner_key
+        #binding.pry
+      end
+    end 
+    #binding.pry
+  end
+  stats
+end
